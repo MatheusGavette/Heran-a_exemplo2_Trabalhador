@@ -27,7 +27,7 @@ namespace Herança_exemplo2_Trabalhador.Entities
             papper.AppendLine("Payments:");
             papper.Append(Name);
             papper.Append(" - $ ");
-            papper.Append(Payment().ToString("F2", CultureInfo.InvariantCulture);
+            papper.Append(Payment().ToString("F2", CultureInfo.InvariantCulture));
 
             return papper.ToString();
         }

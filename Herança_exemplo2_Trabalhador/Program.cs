@@ -20,7 +20,7 @@ namespace Herança_exemplo2_Trabalhador
 
                 Console.WriteLine($"Employee #{i + 1} data:");
                 Console.Write("outsorced (Y/N)?");
-                string opc = Console.ReadLine().ToUpper();
+                char opc = char.Parse(Console.ReadLine().ToUpper());
                 Console.Write("Name: ");
                 string name = Console.ReadLine();
                 Console.Write("Hours: ");
@@ -28,24 +28,25 @@ namespace Herança_exemplo2_Trabalhador
                 Console.Write("Value per hour: ");
                 double valuePerHour = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
-                if (opc == "Y" || opc == "YES")
+                if (opc == 'Y')
                 {
                     Console.Write("Additional charge: ");
                     double additionalCharge = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
-                    Employee x = new OutSourcedEmployee(name, hours, valuePerHour, additionalCharge);
-
-                    paperSalary.Add(x);
+                    paperSalary.Add(new OutSourcedEmployee(name, hours, valuePerHour, additionalCharge));
                 }
                 else
                 {
-                    Employee x = new Employee(name, hours, valuePerHour);
-
-                    paperSalary.Add(x);
+                    paperSalary.Add(new Employee(name, hours, valuePerHour));
                 }
             }
+            Console.WriteLine("---------------------- \n");
 
-            Console.WriteLine(paperSalary);
+            foreach (var e in paperSalary)
+            {
+                Console.WriteLine(e);
+            }
+            
             Console.ReadLine();
         }
     }
