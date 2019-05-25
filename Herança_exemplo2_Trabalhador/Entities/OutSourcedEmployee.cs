@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Globalization;
 using System.Text;
 
 namespace Herança_exemplo2_Trabalhador.Entities
@@ -17,6 +16,17 @@ namespace Herança_exemplo2_Trabalhador.Entities
         public override double Payment()
         {
             return base.Payment() + (AdditionalCharge * 1.10);
+        }
+
+        public override string ToString()
+        {
+            StringBuilder papper = new StringBuilder();
+            papper.AppendLine("Payments: ");
+            papper.Append(Name);
+            papper.Append(" - $");
+            papper.Append(Payment().ToString("F2", CultureInfo.InvariantCulture));
+
+            return papper.ToString();
         }
     }
 }
